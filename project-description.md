@@ -1,10 +1,13 @@
-# Test Project Outline – Module C – Products Management
+# Test Project Outline – Module C – Commercial Open API
+
+#### Competition time
+3 hours
 
 ## Introduction
 
 Module C will focus on the implementation of a REST API.
 
-## Description of project and Tasks
+## General Description of Project and Tasks
 
 The competitors will be asked to create a REST API that will be used commercially. The API must be built with features
 which allow it to be commercialized and made available publicly and openly. The functionality created by competitors in
@@ -25,19 +28,7 @@ in the form of an OpenAPI specification and a generated documentation based on i
 endpoints that competitors are supposed to implement. The specification will also describe the authentication and other
 non-functional requirements of the API.
 
-## Assessment
-
-Module C will be assessed using tools which directly access the API created by competitors. The API will be tested for
-its functionality and its adherence to the specification. The API will also be tested for its security and reliability.
-
-Any modifications in the provided backend of previous modules, including any changes to the database, will not be taken
-into account.
-
-## Competition time
-
-Competitors will have **3 hours** to complete module C.
-
-## Mark distribution
+## Requirements
 
 The table below outlines how marks are broken down and how they align with the WorldSkills Occupation Standards (WSOS).
 Please read the Technical Description for a full explanation of the WorldSkills Occupation Standards.
@@ -52,42 +43,17 @@ Please read the Technical Description for a full explanation of the WorldSkills 
 |              |                                        |        |
 | **Total**    |                                        | 17     |
 
-## Introduction
+You are asked to create a REST API that will be used commercially. The API must be built with features which allow it to be commercialized and made available publicly and openly. The functionality created by you in this module builds on top of the functionality created in module B. However, you are given a working solution of Module B. This solution includes a database dump including the data that is stored in it. You must use this schema and data and are not allowed to use your own Module B solution.
 
-You are asked to create a REST API that will be used commercially. The API must be built with features which allow it to
-be commercialized and made available publicly and openly. The functionality created by you in this module, builds on top
-of the functionality created in module B. However, you are given a working solution of Module B. This solution includes
-a database dump including the data that is stored in it. You must use this schema and data and are not allowed to use
-your own Module B solution.
+The functionality of the API will be to provide external access to a number of Artificial Intelligence (AI) services, which will be run as separate services. Those AI services expose a REST API themselves, which however should not be publicly accessible, as they do not have any level of security and reliability as the open API that you create. For development purposes you will have access to the AI services, but in a production environment, these services would be sealed away, so that only your server application could access the AI service endpoints. The code of the AI services is not available to you.
 
-The functionality of the API will be to provide external access to a number of Artificial Intelligence (AI) services,
-which will be run as separate services. Those AI services expose a REST API themselves, which however should not be
-publicly accessible, as they do not have any level of security and reliability as the open API that you create. For
-development purposes you will have access to the AI services, but in a production environment, these services would be
-sealed away, so that only your server application could access the AI service endpoints. The code of the AI services is
-not available to you.
+A documentation of the AI services APIs in the form of an OpenAPI specification and a generated documentation are provided. You are supposed to build code which wraps these APIs and exposes them through a single API. The AI services expose different ways of accessing their features and how to pass and receive data. Details on how to access the AI services are also provided in a separate document.
 
-A documentation of the AI services APIs in the form of an OpenAPI specification and a generated documentation
-are provided. You are supposed to build code which wraps these APIs and exposes them through a single API. The AI
-services expose different ways of accessing their features and how to pass and receive data. Details on how to access
-the AI services are also provided in a separate document.
-
-There is a specification for the open API that you are tasked to create. This specification is in the form of an
-OpenAPI specification and a generated documentation based on it. The specification describes the endpoints that you are
-supposed to implement. You can find the specification of the API in the file `ai-api/api.yml` and the generated
-documentation in the file `ai-api/api-docs.html`.
+There is a specification for the open API that you are tasked to create. This specification is in the form of an OpenAPI specification and a generated documentation based on it. The specification describes the endpoints that you are supposed to implement. You can find the specification of the API in the file `ai-api/api.yml` and the generated documentation in the file `ai-api/api-docs.html`.
 
 The API shall be implemented using one of the provided frameworks.
 
-## Assessment
-
-Module C will be assessed using tools which directly access the API created by you. The API will be tested for
-its functionality and its adherence to the specification. The API will also be tested for its security and reliability.
-
-Any modifications in the provided backend of previous modules, including any changes to the part of the database that
-was given, will not be taken into account.
-
-## Instructions
+### Instructions
 
 The API that you are supposed to create builds on top of the functionality created in module B. You may need to
 extend the schema of the database to store additional data. Please provide a database SQL dump of the schema and data
@@ -219,3 +185,20 @@ The duration of the request must be used to determine how long it took and conse
 
 You can find the specification of the provided API in the file `provided-ai-services/mindreader.yml` and the generated
 documentation in the file `provided-ai-services/mindreader.html`.
+
+## Assessment
+
+Module C will be assessed using tools which directly access the API created by you. The API will be tested for its functionality and its adherence to the specification. The API will also be tested for its security and reliability.
+
+Any modifications in the provided backend of previous modules, including any changes to the part of the database that was given, will not be taken into account.
+
+#### Mark distribution
+
+| WSOS SECTION | Description                            | Points |
+| ------------ | -------------------------------------- | ------ |
+| 1            | Work organization and self-management  | 1      |
+| 2            | Communication and interpersonal skills | 1      |
+| 3            | Design Implementation                  | 0      |
+| 4            | Front-End Development                  | 0      |
+| 5            | Back-End Development                   | 15     |
+| **Total**    |                                        | 17     |
