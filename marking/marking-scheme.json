@@ -3,35 +3,28 @@
   "wsosSections": {
     "1": "Work organization and self-management",
     "2": "Communication and interpersonal skills",
-    "5": "Back-end development"
+    "5": "Back-End Development"
   },
   "subCriterions": [
     {
-      "name": "API Authentication",
+      "name": "Deliverables",
       "aspects": [
         {
           "type": "measurement",
-          "description": "API endpoints require valid X-API-TOKEN header",
-          "maxMark": 0.5,
-          "wsosSection": 5,
+          "description": "Database dump is provided",
+          "maxMark": 0.25,
+          "wsosSection": 1,
+          "extraDescription": "There is a file containing SQL which contains the structure and data from the previous module, and the newly added structure and data. The file can be executed on a database server in an empty database without errors.",
           "calculation": {
             "type": "pass-or-fail"
           }
         },
         {
           "type": "measurement",
-          "description": "API returns 401 error for invalid tokens",
-          "maxMark": 0.5,
-          "wsosSection": 5,
-          "calculation": {
-            "type": "pass-or-fail"
-          }
-        },
-        {
-          "type": "measurement",
-          "description": "Token correctly identifies user and workspace",
-          "maxMark": 0.5,
-          "wsosSection": 5,
+          "description": "Server application deployed",
+          "maxMark": 0.75,
+          "wsosSection": 1,
+          "extraDescription": "The server application is deployed and running on the server and is ready to be invoked. It has the data provided loaded into the database.",
           "calculation": {
             "type": "pass-or-fail"
           }
@@ -39,31 +32,34 @@
       ]
     },
     {
-      "name": "Quota Management",
+      "name": "Authentication",
       "aspects": [
         {
           "type": "measurement",
-          "description": "API enforces user-defined quotas per workspace",
-          "maxMark": 1.0,
+          "description": "Authentication token is required",
+          "maxMark": 1,
           "wsosSection": 5,
+          "extraDescription": "For any request, the token X-API-TOKEN is required. If it is missing or not valid, the API does not proceed.",
           "calculation": {
             "type": "pass-or-fail"
           }
         },
         {
           "type": "measurement",
-          "description": "API returns 403 error when quota is exceeded",
+          "description": "Authentication error response",
           "maxMark": 0.5,
-          "wsosSection": 5,
+          "wsosSection": 2,
+          "extraDescription": "The expected error response according to the specification is returned if the token is missing or invalid.",
           "calculation": {
             "type": "pass-or-fail"
           }
         },
         {
           "type": "measurement",
-          "description": "Last call may exceed quota but subsequent calls are blocked",
-          "maxMark": 0.5,
+          "description": "Correct workspace association",
+          "maxMark": 0.25,
           "wsosSection": 5,
+          "extraDescription": "Specyfing the token selects the correct underlying workspace for quotas and billing. This can be verified by calling an AI function and checking if the billing of the correct workspace is updated.",
           "calculation": {
             "type": "pass-or-fail"
           }
@@ -71,154 +67,14 @@
       ]
     },
     {
-      "name": "Billing System",
+      "name": "Quotas",
       "aspects": [
         {
           "type": "measurement",
-          "description": "API tracks service usage and updates billing data",
-          "maxMark": 1.0,
+          "description": "Quota enforced",
+          "maxMark": 1,
           "wsosSection": 5,
-          "calculation": {
-            "type": "pass-or-fail"
-          }
-        },
-        {
-          "type": "measurement",
-          "description": "Billing calculation uses milliseconds * service price",
-          "maxMark": 0.5,
-          "wsosSection": 5,
-          "calculation": {
-            "type": "pass-or-fail"
-          }
-        },
-        {
-          "type": "measurement",
-          "description": "Price is rounded up to nearest 100th of a cent",
-          "maxMark": 0.5,
-          "wsosSection": 5,
-          "calculation": {
-            "type": "pass-or-fail"
-          }
-        },
-        {
-          "type": "measurement",
-          "description": "Failed operations do not update billing data",
-          "maxMark": 0.5,
-          "wsosSection": 5,
-          "calculation": {
-            "type": "pass-or-fail"
-          }
-        }
-      ]
-    },
-    {
-      "name": "ChatterBlast Chat API",
-      "aspects": [
-        {
-          "type": "measurement",
-          "description": "Chat endpoint creates conversation and handles prompts",
-          "maxMark": 1.0,
-          "wsosSection": 5,
-          "calculation": {
-            "type": "pass-or-fail"
-          }
-        },
-        {
-          "type": "measurement",
-          "description": "Conversation state prevents concurrent calls",
-          "maxMark": 0.5,
-          "wsosSection": 5,
-          "calculation": {
-            "type": "pass-or-fail"
-          }
-        },
-        {
-          "type": "measurement",
-          "description": "Streaming response excludes EOF timing indicator",
-          "maxMark": 0.5,
-          "wsosSection": 5,
-          "calculation": {
-            "type": "pass-or-fail"
-          }
-        },
-        {
-          "type": "measurement",
-          "description": "Billing uses duration from EOF indicator",
-          "maxMark": 0.5,
-          "wsosSection": 5,
-          "calculation": {
-            "type": "pass-or-fail"
-          }
-        }
-      ]
-    },
-    {
-      "name": "DreamWeaver Image Generation API",
-      "aspects": [
-        {
-          "type": "measurement",
-          "description": "Image generation endpoint handles async job management",
-          "maxMark": 1.0,
-          "wsosSection": 5,
-          "calculation": {
-            "type": "pass-or-fail"
-          }
-        },
-        {
-          "type": "measurement",
-          "description": "Images are downloaded and stored locally with new URLs",
-          "maxMark": 1.0,
-          "wsosSection": 5,
-          "calculation": {
-            "type": "pass-or-fail"
-          }
-        },
-        {
-          "type": "measurement",
-          "description": "Supports upscale, zoom in, and zoom out operations",
-          "maxMark": 0.5,
-          "wsosSection": 5,
-          "calculation": {
-            "type": "pass-or-fail"
-          }
-        },
-        {
-          "type": "measurement",
-          "description": "Billing tracks job duration from start to completion",
-          "maxMark": 0.5,
-          "wsosSection": 5,
-          "calculation": {
-            "type": "pass-or-fail"
-          }
-        }
-      ]
-    },
-    {
-      "name": "MindReader Image Recognition API",
-      "aspects": [
-        {
-          "type": "measurement",
-          "description": "Image recognition endpoint accepts multipart/form-data",
-          "maxMark": 0.5,
-          "wsosSection": 5,
-          "calculation": {
-            "type": "pass-or-fail"
-          }
-        },
-        {
-          "type": "measurement",
-          "description": "Correctly maps bounding box coordinates (top,left,bottom,right to x,y,width,height)",
-          "maxMark": 1.0,
-          "wsosSection": 5,
-          "calculation": {
-            "type": "pass-or-fail"
-          }
-        },
-        {
-          "type": "measurement",
-          "description": "Returns recognized objects with probabilities",
-          "maxMark": 0.5,
-          "wsosSection": 5,
+          "extraDescription": "When the quota is exceeded, any request to start a new computation is denied (according to which endpoints return 403 in the API specification).",
           "calculation": {
             "type": "pass-or-fail"
           }
@@ -230,85 +86,208 @@
       "aspects": [
         {
           "type": "measurement",
-          "description": "Returns appropriate HTTP status codes (400, 401, 403, 404, 503)",
-          "maxMark": 1.0,
-          "wsosSection": 5,
-          "calculation": {
-            "type": "pass-or-fail"
-          }
-        },
-        {
-          "type": "measurement",
-          "description": "Error responses include JSON object with error message",
+          "description": "AI Service returns unexpected error",
           "maxMark": 0.5,
-          "wsosSection": 5,
-          "calculation": {
-            "type": "pass-or-fail"
-          }
-        },
-        {
-          "type": "measurement",
-          "description": "Handles AI service unavailability gracefully",
-          "maxMark": 0.5,
-          "wsosSection": 5,
-          "calculation": {
-            "type": "pass-or-fail"
-          }
-        }
-      ]
-    },
-    {
-      "name": "API Specification Compliance",
-      "aspects": [
-        {
-          "type": "measurement",
-          "description": "API endpoints match OpenAPI specification",
-          "maxMark": 1.0,
-          "wsosSection": 5,
-          "calculation": {
-            "type": "pass-or-fail"
-          }
-        },
-        {
-          "type": "judgement",
-          "description": "API design follows REST principles and best practices",
-          "maxMark": 0.5,
-          "wsosSection": 5,
-          "judgementScoreDescription": [
-            "API endpoints are inconsistent and don't follow REST conventions",
-            "Some endpoints follow REST conventions but with notable inconsistencies",
-            "Most endpoints follow REST conventions with minor issues",
-            "All endpoints follow REST conventions and best practices"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "Organization and Communication",
-      "aspects": [
-        {
-          "type": "judgement",
-          "description": "Code organization and project structure",
-          "maxMark": 1.0,
-          "wsosSection": 1,
-          "judgementScoreDescription": [
-            "Poor code organization, files scattered without clear structure",
-            "Basic organization with some structure but lacking consistency",
-            "Good organization with clear structure and logical file placement",
-            "Excellent organization following professional standards and conventions"
-          ]
-        },
-        {
-          "type": "judgement",
-          "description": "Documentation and communication of solution",
-          "maxMark": 1.0,
           "wsosSection": 2,
-          "judgementScoreDescription": [
-            "No documentation or explanation of implementation",
-            "Minimal documentation with basic setup instructions",
-            "Good documentation covering setup and key implementation details",
-            "Comprehensive documentation with clear explanations and examples"
-          ]
+          "extraDescription": "If the AI service returns an unexpected error with status 500, the respective endpoints implemented by the competitor return a 503 response according to the spec.",
+          "calculation": {
+            "type": "pass-or-fail"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Chat",
+      "aspects": [
+        {
+          "type": "measurement",
+          "description": "Conversation start",
+          "maxMark": 0.5,
+          "wsosSection": 5,
+          "extraDescription": "A conversation can be started with an initial prompt. The endpoint response contains the conversation ID, response (can be empty string), and if the response is final.",
+          "calculation": {
+            "type": "pass-or-fail"
+          }
+        },
+        {
+          "type": "measurement",
+          "description": "Converstation response",
+          "maxMark": 0.5,
+          "wsosSection": 5,
+          "extraDescription": "The response is provided in the GET endpoint. The final flag is set when the response is final. Calling the endpoint multiple times reveals the latest available response from the Chatterblast service.",
+          "calculation": {
+            "type": "pass-or-fail"
+          }
+        },
+        {
+          "type": "measurement",
+          "description": "Converstation continuation",
+          "maxMark": 0.5,
+          "wsosSection": 5,
+          "extraDescription": "The conversation can be continued with the PUT endpoint. The endpoint response contains the expected fields.",
+          "calculation": {
+            "type": "pass-or-fail"
+          }
+        },
+        {
+          "type": "measurement",
+          "description": "Inputs blocked while response in progress",
+          "maxMark": 1,
+          "wsosSection": 5,
+          "extraDescription": "If there was a prompt submitted, further prompts are cancelled and a response with status code 400 is returned while the previous response is not yet final.",
+          "calculation": {
+            "type": "pass-or-fail"
+          }
+        },
+        {
+          "type": "measurement",
+          "description": "EOF indicator",
+          "maxMark": 1,
+          "wsosSection": 5,
+          "extraDescription": "The <EOF> indicator and what comes after it is not included in the response.",
+          "calculation": {
+            "type": "pass-or-fail"
+          }
+        },
+        {
+          "type": "measurement",
+          "description": "Converstation not found",
+          "maxMark": 0.25,
+          "wsosSection": 5,
+          "extraDescription": "If the provided conversation ID does not exist, a 404 error is returned according to the specification.",
+          "calculation": {
+            "type": "pass-or-fail"
+          }
+        },
+        {
+          "type": "measurement",
+          "description": "Billing",
+          "maxMark": 1.5,
+          "wsosSection": 5,
+          "extraDescription": "The biling of the workspace is updated once the final answer is returned with the provided time it took according the the indicator.",
+          "calculation": {
+            "type": "pass-or-fail"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Image Generation",
+      "aspects": [
+        {
+          "type": "measurement",
+          "description": "Generation job start",
+          "maxMark": 0.5,
+          "wsosSection": 5,
+          "extraDescription": "A image generation job can be started. The endpoint response contains the job ID according to the specification.",
+          "calculation": {
+            "type": "pass-or-fail"
+          }
+        },
+        {
+          "type": "measurement",
+          "description": "Job status",
+          "maxMark": 0.25,
+          "wsosSection": 5,
+          "extraDescription": "The job status endpoint returns the current status, progress and an image URL according to the specification.",
+          "calculation": {
+            "type": "pass-or-fail"
+          }
+        },
+        {
+          "type": "measurement",
+          "description": "Preliminary image is available",
+          "maxMark": 1.5,
+          "wsosSection": 5,
+          "extraDescription": "The image URL in the job status response points to a URL on the newly written server by the competitor and returns the image in a way that it can be included in a <img> tag.",
+          "calculation": {
+            "type": "pass-or-fail"
+          }
+        },
+        {
+          "type": "measurement",
+          "description": "Result",
+          "maxMark": 0.5,
+          "wsosSection": 5,
+          "extraDescription": "The job result endpoint returns a resource ID and an image URL which can be included in a <img> tag.",
+          "calculation": {
+            "type": "pass-or-fail"
+          }
+        },
+        {
+          "type": "measurement",
+          "description": "Upscale",
+          "maxMark": 0.25,
+          "wsosSection": 5,
+          "extraDescription": "The generated image can be upscaled. The upscale endpoint returns a job ID according to the specification.",
+          "calculation": {
+            "type": "pass-or-fail"
+          }
+        },
+        {
+          "type": "measurement",
+          "description": "Zoom in / out",
+          "maxMark": 0.25,
+          "wsosSection": 5,
+          "extraDescription": "The generated image can be zoomed in or out. The zoom in/out endpoints returns a job ID according to the specification.",
+          "calculation": {
+            "type": "pass-or-fail"
+          }
+        },
+        {
+          "type": "measurement",
+          "description": "Not found",
+          "maxMark": 0.25,
+          "wsosSection": 5,
+          "extraDescription": "The following endpoints all return a 404 error according the spec if a non existing resource is provided: job status, job result, upscale, zoom in, zoom out.",
+          "calculation": {
+            "type": "pass-or-fail"
+          }
+        },
+        {
+          "type": "measurement",
+          "description": "Billing",
+          "maxMark": 1.5,
+          "wsosSection": 5,
+          "extraDescription": "The biling of the workspace is updated once the image generation job has completed with the duration it took DreamWeaver to complete the job.",
+          "calculation": {
+            "type": "pass-or-fail"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Image Recognition",
+      "aspects": [
+        {
+          "type": "measurement",
+          "description": "Image Upload",
+          "maxMark": 1.5,
+          "wsosSection": 5,
+          "extraDescription": "An image can be uploaded via multipart form.",
+          "calculation": {
+            "type": "pass-or-fail"
+          }
+        },
+        {
+          "type": "measurement",
+          "description": "Image recognition response",
+          "maxMark": 0.5,
+          "wsosSection": 5,
+          "extraDescription": "The recognition response is returned with the correct mapping of x, y, width, height from the AI services original top, left, bottom, right response.",
+          "calculation": {
+            "type": "pass-or-fail"
+          }
+        },
+        {
+          "type": "measurement",
+          "description": "Billing",
+          "maxMark": 0.5,
+          "wsosSection": 5,
+          "extraDescription": "The billing of the workspace is updated with the duration of the request to the Mindreader service.",
+          "calculation": {
+            "type": "pass-or-fail"
+          }
         }
       ]
     }

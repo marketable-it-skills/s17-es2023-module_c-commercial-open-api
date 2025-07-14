@@ -1,6 +1,7 @@
 # Test Project Outline – Module C – Commercial Open API
 
 #### Competition time
+
 3 hours
 
 ## Introduction
@@ -29,19 +30,6 @@ endpoints that competitors are supposed to implement. The specification will als
 non-functional requirements of the API.
 
 ## Requirements
-
-The table below outlines how marks are broken down and how they align with the WorldSkills Occupation Standards (WSOS).
-Please read the Technical Description for a full explanation of the WorldSkills Occupation Standards.
-
-| WSOS SECTION | Description                            | Points |
-| ------------ | -------------------------------------- | ------ |
-| 1            | Work organisation and self-management  | 1      |
-| 2            | Communication and interpersonal skills | 1      |
-| 3            | Design Implementation                  | 0      |
-| 4            | Front-End Development                  | 0      |
-| 5            | Back-End Development                   | 15     |
-|              |                                        |        |
-| **Total**    |                                        | 17     |
 
 You are asked to create a REST API that will be used commercially. The API must be built with features which allow it to be commercialized and made available publicly and openly. The functionality created by you in this module builds on top of the functionality created in module B. However, you are given a working solution of Module B. This solution includes a database dump including the data that is stored in it. You must use this schema and data and are not allowed to use your own Module B solution.
 
